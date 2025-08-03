@@ -152,34 +152,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>785</LineNumber>
+          <LineNumber>168</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134222576</Address>
+          <Address>134222390</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Src\app_bootloader.c</Filename>
+          <Filename>..\Src\app_flash.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Project\../Src/app_bootloader.c\785</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>774</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134222568</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Src\app_bootloader.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Project\../Src/app_bootloader.c\774</Expression>
+          <Expression>\\Project\../Src/app_flash.c\168</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -283,12 +267,17 @@
           <WinNumber>1</WinNumber>
           <ItemText>ucDataBuffer</ItemText>
         </Ww>
+        <Ww>
+          <count>20</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>wDataLength</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>1</SubType>
-          <ItemText>0x2000000c</ItemText>
+          <ItemText>0x08004000</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
