@@ -45,6 +45,7 @@ ErrorStatus APP_WriteFlash(uint32_t dwAddr, uint8_t *pucDataBuf, uint8_t ucDataL
     uint32_t dwEndAddr; // 调整后的结束地址
 
     wDataLength = ucDataLength + 1;
+    // wDataLength = ucDataLength;
     /*
       参考uISP工具:
       当地为0x08000000，大小为0xC8时，调整后的起始地址为0x08000000，结束地址为0x080000FF，所以大小为0x100

@@ -40,4 +40,22 @@ void HAL_MspInit(void)
   __HAL_RCC_PWR_CLK_ENABLE();
 }
 
+/**
+  * @brief Initialize MSP for CRC.
+  */
+void HAL_CRC_MspInit(CRC_HandleTypeDef *hcrc)
+{
+  /* CRC Peripheral clock enable */
+  __HAL_RCC_CRC_CLK_ENABLE();
+}
+
+/**
+  * @brief De-initialize the MSP of CRC.
+  */
+void HAL_CRC_MspDeInit(CRC_HandleTypeDef *hcrc)
+{
+  /* CRC Peripheral clock disable */
+  __HAL_RCC_CRC_CLK_DISABLE();
+}
+
 /************************ (C) COPYRIGHT Puya *****END OF FILE******************/

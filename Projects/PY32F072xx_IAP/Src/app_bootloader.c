@@ -33,7 +33,7 @@ by using USART1 (PA9/PA10 AF2), USART2 (PD5/PD6 AF2) or I2C on pins PB6/PB7 or U
 #include "app_flash.h"
 #include "app_wdg.h"
 #include "usb_config.h"
-
+#include "crc.h"
 /* Private types ------------------------------------------------------------*/
 typedef enum _INTERFACE
 {
@@ -55,7 +55,7 @@ INTERFACE guc_InterfaceDetection = INTERFACE_USART1;
 #define OTP_AREA 0x4U   /* OTP Address area */
 #define SYS_AREA 0x5U   /* System memory area */
 #define EB_AREA 0x7U    /* Engi bytes Address area */
-
+#define RX_BUF_SIZE 1100
 /* Private macro -------------------------------------------------------------*/
 const uint32_t BID_DATA __attribute__((at(BID_BASE))) = BID;
 // const uint32_t BID_DATA __attribute__((section(".ARM.__at_0x1FFF0BFC"))) = BID;
@@ -745,25 +745,42 @@ ErrorStatus APP_Go(void)
 ErrorStatus APP_WriteMemory(void)
 {
     uint16_t i;
-    uint8_t ucMemArea;
-    uint8_t ucDataLength;
+    __IO uint8_t ucMemArea;
+    __IO uint16_t ucDataLength;
     uint32_t dwAddr;
     ErrorStatus eResultFlag;
-    uint8_t ucDataBuffer[0x201];
+    // uint8_t ucDataBuffer[0x201]; // 513字节
+    uint8_t ucDataBuffer[RX_BUF_SIZE];
 
+    // 读取5个字节, 获取要写入的地址, 其中前面4个字节是地址, 最后一个字节是xOR
     ucMemArea = GetAddressArea(&dwAddr);
     if ((ucMemArea != FLASH_AREA) && (ucMemArea != RAM_AREA) && (ucMemArea != OB_AREA))
     {
         return ERROR;
     }
 
-    ucDataLength = APP_Bootloader_ReadByte();
-    APP_Bootloader_ReadData(ucDataBuffer, (ucDataLength + 1) + 1);
-
-    if (ucDataBuffer[ucDataLength + 1] != APP_GetXOR(ucDataBuffer, ucDataLength + 1, ucDataLength))
+    // 读取2个字节, 为长度
+    ucDataLength = (uint16_t)(APP_Bootloader_ReadByte()) << 8 | (uint16_t)APP_Bootloader_ReadByte();
+    if(ucDataLength > RX_BUF_SIZE - 4) // 4个字节是crc
     {
         return ERROR;
     }
+    // 加4目的是crc 然后读取ucDataLength+4个字节的数据
+    APP_Bootloader_ReadData(ucDataBuffer, (ucDataLength + 4));
+    uint32_t crc_bytes = ucDataBuffer[ucDataLength] << 24 | ucDataBuffer[ucDataLength + 1] << 16 | ucDataBuffer[ucDataLength + 2] << 8 | ucDataBuffer[ucDataLength + 3];
+
+    // 计算crc
+    uint32_t crc_calculated = crc_calculate(ucDataBuffer, ucDataLength);
+    if (crc_calculated != crc_bytes)
+    {
+        return ERROR; // CRC校验失败
+    }
+
+    // 计算oXR, ucDataBuffer[ucDataLength + 1]是xOR校验和
+    // if (ucDataBuffer[ucDataLength + 1] != APP_GetXOR(ucDataBuffer, ucDataLength + 1, ucDataLength))
+    // {
+    //     return ERROR;
+    // }
 
     switch (ucMemArea)
     {

@@ -1,25 +1,26 @@
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07x_HAL_Driver\Src\py32f07x_hal_dma.c
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal.h
-.\output\py32f07x_hal_dma.o: ..\Inc\py32f07x_hal_conf.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_def.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\py32f0xx.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\py32f072xB.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\CMSIS\Include\core_cm0plus.h
-.\output\py32f07x_hal_dma.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\CMSIS\Include\core_cmInstr.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\CMSIS\Include\cmsis_armcc.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\CMSIS\Include\core_cmFunc.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\system_py32f0xx.h
-.\output\py32f07x_hal_dma.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc_ex.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_gpio.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_gpio_ex.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_cortex.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_dma.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_dma_ex.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_flash.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_i2c.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_pwr.h
-.\output\py32f07x_hal_dma.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_uart.h
+./output/py32f07x_hal_dma.o: \
+  ..\..\..\Drivers\PY32F07x_HAL_Driver\Src\py32f07x_hal_dma.c \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal.h \
+  ..\Inc\py32f07x_hal_conf.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_def.h \
+  ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\py32f0xx.h \
+  ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\py32f072xB.h \
+  ..\..\..\Drivers\CMSIS\Include\core_cm0plus.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\..\..\Drivers\CMSIS\Include\core_cmInstr.h \
+  ..\..\..\Drivers\CMSIS\Include\cmsis_armcc_V6.h \
+  ..\..\..\Drivers\CMSIS\Include\core_cmFunc.h \
+  ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\system_py32f0xx.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc_ex.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_gpio.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_gpio_ex.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_cortex.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_dma.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_dma_ex.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_crc.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_flash.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_i2c.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_pwr.h \
+  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_uart.h

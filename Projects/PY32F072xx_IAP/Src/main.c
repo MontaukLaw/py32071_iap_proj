@@ -27,6 +27,7 @@
 #include "app_wdg.h"
 #include "app_usart.h"
 #include "app_i2c.h"
+#include "crc.h"
 /* Private define ------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private user code ---------------------------------------------------------*/
@@ -78,9 +79,16 @@ int main(void)
 
     /* 初始化USB外设 */
     // APP_USBInit();
+    // uint8_t crc_data[32] = {
+    //     0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+    //     0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
+    //     0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+    //     0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F};
+
+    // crc_calculate(crc_data, sizeof(crc_data));
 
     APP_Bootloader_Init();
-		
+
     /* 无限循环 */
     while (1)
     {
