@@ -1,0 +1,71 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.41.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Marc LUO, SYCSense, LIC=LSNXV-PZRZJ-HL9CL-022LL-HRE73-2YXM8
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.41.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 4 (build 422)
+Assembler:       Armasm.exe V5.06 update 4 (build 422)
+Linker/Locator:  ArmLink.exe V5.06 update 4 (build 422)
+Library Manager: ArmAr.exe V5.06 update 4 (build 422)
+Hex Converter:   FromElf.exe V5.06 update 4 (build 422)
+CPU DLL:         SARMCM3.DLL V5.41.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.6.0
+Target DLL:      CMSIS_AGDI.dll V1.33.21.0
+Dialog DLL:      TARMCM1.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+D:\work\Sample_Code\PY32F072&PY32F071&PY32F070\PY32F07x_IAP_APP_Firmware_V0.0.3\Projects\PY32F072xx_APP\MDK-ARM\Project.uvprojx
+Project File Date:  08/02/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'PY32F072xB_Project'
+compiling py32f07x_hal_dma.c...
+compiling system_py32f07x.c...
+compiling py32f07x_hal_cortex.c...
+compiling py32f07x_hal_usart.c...
+compiling py32f07x_hal.c...
+compiling py32f07x_hal_gpio.c...
+compiling main.c...
+..\Src\main.c(110): warning:  #177-D: function "APP_ConfigureExti"  was declared but never referenced
+  static void APP_ConfigureExti(void)
+..\Src\main.c: 1 warning, 0 errors
+compiling py32f07x_hal_msp.c...
+compiling py32f072xx_Start_Kit.c...
+compiling py32f07x_it.c...
+compiling py32f07x_hal_pwr.c...
+compiling py32f07x_hal_rcc.c...
+compiling py32f07x_hal_rcc_ex.c...
+linking...
+.\Output\Project.axf: Error: L6218E: Undefined symbol HAL_UART_Init (referred from py32f072xx_start_kit.o).
+.\Output\Project.axf: Error: L6218E: Undefined symbol HAL_UART_Receive (referred from py32f072xx_start_kit.o).
+.\Output\Project.axf: Error: L6218E: Undefined symbol HAL_UART_Transmit (referred from py32f072xx_start_kit.o).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 3 error messages.
+".\Output\Project.axf" - 3 Error(s), 1 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Puya
+                https://www.puyasemi.com/uploadfiles/Puya.PY32F0xx_DFP.1.2.2.pack
+                Puya::PY32F0xx_DFP@1.2.2
+                Puya PY32F0 Series Device Support
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_PY32F072xB_Project
+  C:/Keil_v5/ARM/PACK/Puya/PY32F0xx_DFP/1.2.2/Drivers/CMSIS/Device/PY32F0xx/Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+Build Time Elapsed:  00:00:04
+</pre>
+</body>
+</html>
