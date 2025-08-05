@@ -49,7 +49,7 @@
 #define STM32F4_BID_BASE        (0x1FFF77DEUL)
 
 /* Exported functions ------------------------------------------------------- */
-ErrorStatus APP_WriteFlash(uint32_t dwAddr, uint8_t* pucDataBuf, uint8_t ucDataLength);
+ErrorStatus APP_WriteFlash(uint32_t dwAddr, uint8_t* pucDataBuf, uint16_t ucDataLength);
 ErrorStatus APP_WriteOption(uint32_t dwAddr, uint8_t* pucDataBuf, uint8_t ucDataLength);
 ErrorStatus APP_MassErase(void);
 ErrorStatus APP_PageErase(uint16_t* pwDataBuf, uint8_t ucDataLength, uint8_t ucPageCount);

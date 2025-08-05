@@ -48,8 +48,8 @@ int main(void)
     /* 初始化LED GPIO */
     BSP_LED_Init(LED_GREEN);
 
-    BSP_USART_Config();
-    printf("System is up\r\n");
+    // BSP_USART_Config();
+    // printf("System is up\r\n");
 
     /* 配置外部中断 */
     // APP_ConfigureExti();

@@ -1,37 +1,38 @@
-./output/usbd_core.o: \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\core\usbd_core.c \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\core\usbd_core.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h ..\Inc\usb_config.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal.h \
-  ..\Inc\py32f07x_hal_conf.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_def.h \
-  ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\py32f0xx.h \
-  ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\py32f072xB.h \
-  ..\..\..\Drivers\CMSIS\Include\core_cm0plus.h \
-  ..\..\..\Drivers\CMSIS\Include\core_cmInstr.h \
-  ..\..\..\Drivers\CMSIS\Include\cmsis_armcc_V6.h \
-  ..\..\..\Drivers\CMSIS\Include\core_cmFunc.h \
-  ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\system_py32f0xx.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc_ex.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_gpio.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_gpio_ex.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_cortex.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_dma.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_dma_ex.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_crc.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_flash.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_i2c.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_pwr.h \
-  ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_uart.h \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_util.h \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_errno.h \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_def.h \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_list.h \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_mem.h \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_log.h \
-  ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_dc.h
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\core\usbd_core.c
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\core\usbd_core.h
+.\output\usbd_core.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\usbd_core.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\output\usbd_core.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\usbd_core.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\usbd_core.o: ..\Inc\usb_config.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal.h
+.\output\usbd_core.o: ..\Inc\py32f07x_hal_conf.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_def.h
+.\output\usbd_core.o: ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\py32f0xx.h
+.\output\usbd_core.o: ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\py32f072xB.h
+.\output\usbd_core.o: ..\..\..\Drivers\CMSIS\Include\core_cm0plus.h
+.\output\usbd_core.o: ..\..\..\Drivers\CMSIS\Include\core_cmInstr.h
+.\output\usbd_core.o: ..\..\..\Drivers\CMSIS\Include\cmsis_armcc.h
+.\output\usbd_core.o: ..\..\..\Drivers\CMSIS\Include\core_cmFunc.h
+.\output\usbd_core.o: ..\..\..\Drivers\CMSIS\Device\PY32F07X\Include\system_py32f0xx.h
+.\output\usbd_core.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc_ex.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_gpio.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_gpio_ex.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_cortex.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_dma.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_dma_ex.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_crc.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_flash.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_i2c.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_pwr.h
+.\output\usbd_core.o: ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_uart.h
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_util.h
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_errno.h
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_def.h
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_list.h
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_mem.h
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_log.h
+.\output\usbd_core.o: ..\..\..\Middlewares\Third_Party\CherryUSB\common\usb_dc.h

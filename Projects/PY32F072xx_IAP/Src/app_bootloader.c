@@ -55,7 +55,7 @@ INTERFACE guc_InterfaceDetection = INTERFACE_USART1;
 #define OTP_AREA 0x4U   /* OTP Address area */
 #define SYS_AREA 0x5U   /* System memory area */
 #define EB_AREA 0x7U    /* Engi bytes Address area */
-#define RX_BUF_SIZE 1100
+#define RX_BUF_SIZE 300 // 1100
 /* Private macro -------------------------------------------------------------*/
 const uint32_t BID_DATA __attribute__((at(BID_BASE))) = BID;
 // const uint32_t BID_DATA __attribute__((section(".ARM.__at_0x1FFF0BFC"))) = BID;
@@ -79,6 +79,8 @@ uint8_t APP_GetXOR(const uint8_t *pucDataBuf, uint16_t wDataLength, uint8_t ucBa
 static void APP_DeInitOtherInterface(void);
 static void APP_SetFlashParameter(void);
 
+__IO uint8_t ucFuncFlag = 0;
+
 /* Exported functions --------------------------------------------------------*/
 /**
  * @brief  Initialize Bootloader.
@@ -87,6 +89,8 @@ static void APP_SetFlashParameter(void);
  */
 void APP_Bootloader_Init(void)
 {
+    // 1.2秒
+    static uint32_t count_down = 1000000;
     while (1)
     {
         APP_WDG_Refresh();
@@ -97,11 +101,20 @@ void APP_Bootloader_Init(void)
             if (rx == 0x7F)
             {
                 guc_InterfaceDetection = INTERFACE_USART1;
-                APP_USART_InitTx(USART1);
+                // APP_USART_InitTx(USART1);
                 break;
             }
         }
         SET_BIT(USART1->SR, USART_SR_ABRRQ);
+
+        count_down--;
+        if (count_down == 0)
+        {
+            // APP_Bootloader_SendByte(SYNC_BYTE);
+            BSP_LED_Off(LED_GREEN); // LED off
+            // 跳转到APP
+            APP_Bootloader_Go(APP_ADDR);
+        }
 
 #if 0
         if (0x7F == (uint8_t)(READ_BIT(USART1->DR, USART_DR_DR) & 0xFFU))
@@ -111,9 +124,6 @@ void APP_Bootloader_Init(void)
             break;
         }
         SET_BIT(USART1->SR, USART_SR_ABRRQ);
-#endif
-
-#if 0
         if (0x7F == (uint8_t)(READ_BIT(USART2->DR, USART_DR_DR) & 0xFFU))
         {
             guc_InterfaceDetection = INTERFACE_USART2;
@@ -151,6 +161,7 @@ void APP_Bootloader_Init(void)
             break;
         }
 #endif
+
     }
 
     // APP_DeInitOtherInterface();
@@ -761,16 +772,16 @@ ErrorStatus APP_WriteMemory(void)
 
     // 读取2个字节, 为长度
     ucDataLength = (uint16_t)(APP_Bootloader_ReadByte()) << 8 | (uint16_t)APP_Bootloader_ReadByte();
-    if(ucDataLength > RX_BUF_SIZE - 4) // 4个字节是crc
+    if (ucDataLength > RX_BUF_SIZE - 4) // 4个字节是crc
     {
         return ERROR;
     }
     // 加4目的是crc 然后读取ucDataLength+4个字节的数据
     APP_Bootloader_ReadData(ucDataBuffer, (ucDataLength + 4));
-    uint32_t crc_bytes = ucDataBuffer[ucDataLength] << 24 | ucDataBuffer[ucDataLength + 1] << 16 | ucDataBuffer[ucDataLength + 2] << 8 | ucDataBuffer[ucDataLength + 3];
+    __IO uint32_t crc_bytes = ucDataBuffer[ucDataLength] << 24 | ucDataBuffer[ucDataLength + 1] << 16 | ucDataBuffer[ucDataLength + 2] << 8 | ucDataBuffer[ucDataLength + 3];
 
     // 计算crc
-    uint32_t crc_calculated = crc_calculate(ucDataBuffer, ucDataLength);
+    __IO uint32_t crc_calculated = crc_calculate(ucDataBuffer, ucDataLength);
     if (crc_calculated != crc_bytes)
     {
         return ERROR; // CRC校验失败
@@ -813,7 +824,6 @@ ErrorStatus APP_ExtendedErase(void)
     uint8_t i;
     uint8_t ucXOR;
     uint8_t ucDataTemp;
-    uint8_t ucFuncFlag;
     uint8_t ucDataLength;
     ErrorStatus eResultFlag = ERROR;
     uint8_t ucDataBuffer[0x40];

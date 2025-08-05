@@ -30,21 +30,21 @@
  *          - SUCCESS: Write FLASH operation done
  *          - ERROR:   Write FLASH operation failed or the value of one parameter is not ok
  */
-ErrorStatus APP_WriteFlash(uint32_t dwAddr, uint8_t *pucDataBuf, uint8_t ucDataLength)
+ErrorStatus APP_WriteFlash(uint32_t dwAddr, uint8_t *pucDataBuf, uint16_t ucDataLength)
 {
 #ifdef CHECK_WRP
     uint8_t ucSector;
 #endif
     uint16_t i, j;
-    uint16_t wDataLength;
-    uint32_t dwOffsetAddr;
-    ErrorStatus eResultFlag;
+    uint16_t wDataLength;    // 实际写入长度。
+    uint32_t dwOffsetAddr;   // Flash 页偏移
+    ErrorStatus eResultFlag; // 返回成功/失败标志。
 
 #ifdef ADJUST_ADDR_AND_SIZE
     uint32_t dwOrgAddr; // 备份调整前的地址
     uint32_t dwEndAddr; // 调整后的结束地址
 
-    wDataLength = ucDataLength + 1;
+    wDataLength = ucDataLength;
     // wDataLength = ucDataLength;
     /*
       参考uISP工具:
@@ -127,11 +127,13 @@ ErrorStatus APP_WriteFlash(uint32_t dwAddr, uint8_t *pucDataBuf, uint8_t ucDataL
             {
                 // 6) 在软件写第 63 个 word 后， 置位 FLASH_CR 寄存器的 PGSTRT
                 SET_BIT(FLASH->CR, FLASH_CR_PGSTRT);
+                // 芯片的需求，写第 63 个 word 后才置位 PGSTRT 启动真正写入。
             }
         }
 
         // 7) 写第 64 个 word 后
         // 8) 等待 FLASH_SR 寄存器的 BSY 位被清零
+        // 等待写入完成
         while (FLASH_SR_BSY == READ_BIT(FLASH->SR, FLASH_SR_BSY))
             ;
 

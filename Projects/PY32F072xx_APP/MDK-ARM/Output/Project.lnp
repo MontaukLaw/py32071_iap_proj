@@ -13,6 +13,7 @@
 ".\output\py32f07x_hal_rcc_ex.o"
 ".\output\py32f07x_hal_pwr.o"
 ".\output\py32f07x_hal_usart.o"
+".\output\py32f07x_hal_uart.o"
 --library_type=microlib --strict --scatter ".\Output\Project.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

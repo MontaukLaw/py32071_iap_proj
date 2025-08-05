@@ -42,6 +42,7 @@ static void APP_USBInit(void);
  */
 int main(void)
 {
+	
     /* 初始化IWDG和WWDG */
     APP_WDG_Init();
 
@@ -54,10 +55,10 @@ int main(void)
 
     /* Check if the USER Button is pressed */
     // 检查按键动作, 如果被按下, 就跳转.
-    if (BSP_PB_GetState(BUTTON_USER) == 0x00)
-    {
-        APP_Bootloader_Go(APP_ADDR);
-    }
+    // if (BSP_PB_GetState(BUTTON_USER) == 0x00)
+    // {
+    //     APP_Bootloader_Go(APP_ADDR);
+    // }
 
     /* 系统时钟配置 */
     APP_SystemClockConfig();
@@ -86,7 +87,9 @@ int main(void)
     //     0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F};
 
     // crc_calculate(crc_data, sizeof(crc_data));
-
+    APP_USART_InitTx(USART1);
+    // HAL_Delay(1000); // 等待USART1初始化完成
+    APP_Bootloader_SendByte(SYNC_BYTE);
     APP_Bootloader_Init();
 
     /* 无限循环 */

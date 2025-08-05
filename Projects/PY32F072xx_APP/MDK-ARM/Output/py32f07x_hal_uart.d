@@ -1,5 +1,5 @@
-./output/py32f07x_hal_pwr.o: \
-  ..\..\..\Drivers\PY32F07x_HAL_Driver\Src\py32f07x_hal_pwr.c \
+./output/py32f07x_hal_uart.o: \
+  ..\..\..\Drivers\PY32F07x_HAL_Driver\Src\py32f07x_hal_uart.c \
   ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal.h \
   ..\Inc\py32f07x_hal_conf.h \
   ..\..\..\Drivers\PY32F07X_HAL_Driver\Inc\py32f07x_hal_rcc.h \
