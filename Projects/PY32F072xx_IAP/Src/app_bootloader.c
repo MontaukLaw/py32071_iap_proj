@@ -161,7 +161,6 @@ void APP_Bootloader_Init(void)
             break;
         }
 #endif
-
     }
 
     // APP_DeInitOtherInterface();
@@ -346,6 +345,7 @@ void APP_Bootloader_ProtocolDetection(void)
         APP_Bootloader_SendByte(NACK_BYTE);
         return;
     }
+
 #endif
 
 #if 1
@@ -813,6 +813,20 @@ ErrorStatus APP_WriteMemory(void)
     return eResultFlag;
 }
 
+// Sector0跟Sector1是给bootloader用的, 不能擦除
+uint8_t if_addr_in_app_range(uint16_t *addr, uint16_t length)
+{
+    for (uint16_t i = 0; i < length + 1; i++)
+    {
+        // 这两个区域不能写入
+        if (addr[length] == 0 || addr[length] == 1)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 /**
  * @brief  This function is used to erase a memory.
  * @retval An ErrorStatus enumeration value:
@@ -874,13 +888,23 @@ ErrorStatus APP_ExtendedErase(void)
         switch (ucFuncFlag)
         {
         case 0x00: // 兼容ST,按1KBytes擦除
-            eResultFlag = APP_PageErase(addr_list, ucDataLength, 0x400 / FLASH_PAGE_SIZE);
+                   // 保护一下
+            // eResultFlag = APP_PageErase(addr_list, ucDataLength, 0x400 / FLASH_PAGE_SIZE);
             break;
         case 0x10: // PageErase
-            eResultFlag = APP_PageErase(addr_list, ucDataLength, 1);
+                   // 保护一下
+            // eResultFlag = APP_PageErase(addr_list, ucDataLength, 1);
             break;
-        case 0x20: // SectorErase
-            eResultFlag = APP_SectorErase(addr_list, ucDataLength);
+        case 0x20:
+            // SectorErase
+            if (if_addr_in_app_range(addr_list, ucDataLength) == 0)
+            {
+                eResultFlag = ERROR;
+            }
+            else
+            {
+                eResultFlag = APP_SectorErase(addr_list, ucDataLength);
+            }
             break;
             //    case 0x30://BlockErase
             //      eResultFlag = APP_BlockErase((uint16_t *)ucDataBuffer, ucDataLength);
