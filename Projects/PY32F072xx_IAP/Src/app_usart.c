@@ -17,7 +17,7 @@
 #include "app_usart.h"
 #include "app_wdg.h"
 
-#define DEFAULT_BAUDRATE 115200 /* Default Baudrate */
+#define DEFAULT_BAUDRATE 460800 // 115200 /* Default Baudrate */
 #define DEFAULT_BRR ((SystemCoreClock + DEFAULT_BAUDRATE / 2) / DEFAULT_BAUDRATE)
 
 /* Exported functions --------------------------------------------------------*/

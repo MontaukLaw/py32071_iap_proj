@@ -583,9 +583,9 @@ uint8_t GetAddressArea(uint32_t *pdwAddr)
     {
     case STM32F0_FLASHSIZE_BASE:
     case STM32F1_FLASHSIZE_BASE:
-        //  case STM32F3_FLASHSIZE_BASE:
+        // case STM32F3_FLASHSIZE_BASE:
     case STM32F4_FLASHSIZE_BASE:
-        //    *pdwAddr = FLASHSIZE_BASE;
+        // *pdwAddr = FLASHSIZE_BASE;
         return OB_AREA;
     case STM32F0_UID_BASE:
     case STM32F1_UID_BASE:
